@@ -53,14 +53,18 @@
 						alert("리스트가 존재하지 않습니다.");
 						for(j=0; j<10; j++)
 						{
-							$("#list").append("<div class='get_list' id="+result[j]['id']+"><p>TITLE : "+result[j]['title']+"</p><p>작성자 : "+result[j]['author']+"</p><p>날짜 : "+result[j]['publised']+"</p></div>");
+							if(result[j]['author_id']==1) var author="admin";
+							else author = result[j]['author'];
+							$("#list").append("<div class='get_list' id="+result[j]['id']+"><p>TITLE : "+result[j]['title']+"</p><p>작성자 : "+author+"</p><p>날짜 : "+result[j]['publised']+"</p></div>");
 						}
 					}
 					else
 					{
 						for(j=0; j<=i; j++)
 						{
-							$("#list").append("<div class='get_list' id="+result[j]['id']+"><p>TITLE : "+result[j]['title']+"</p><p>작성자 : "+result[j]['author']+"</p><p>날짜 : "+result[j]['publised']+"</p></div>");
+							if(result[j]['author_id']==1) var author="admin";
+							else author=result[j]['author'];
+							$("#list").append("<div class='get_list' id="+result[j]['id']+"><p>TITLE : "+result[j]['title']+"</p><p>작성자 : "+author+"</p><p>날짜 : "+result[j]['publised']+"</p></div>");
 						}
 						i++;
 					}
@@ -83,8 +87,10 @@
 			contentType: false,
 			success: function(data){
 				var result = data.result;
+				if(result[0]['author_id']==1) var author="admin";
+				else author = result[0]['author'];
 				$("#list").html("");
-				$("#list").append("<form class='detail_form' method='post'><table border='1' class='detail_table'><tr><td id='title' colspan=4>제목 : " +result[0]['title']+"</td></tr><tr><td id='author' colspan=2>작성자 : " +result[0]['author']+"</td><td id='published' colspan=2>날짜 : " + result[0]['publised']+"</td></tr><tr><td id='context' colspan=4>"+result[0]['context']+"</td></tr></table></form>")
+				$("#list").append("<form class='detail_form' method='post'><table border='1' class='detail_table'><tr><td id='title' colspan=4>제목 : " +result[0]['title']+"</td></tr><tr><td id='author' colspan=2>작성자 : " +author+"</td><td id='published' colspan=2>날짜 : " + result[0]['publised']+"</td></tr><tr><td id='context' colspan=4>"+result[0]['context']+"</td></tr></table></form>")
 			}
 		});
 	});
