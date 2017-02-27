@@ -1,0 +1,39 @@
+{% load staticfiles %}
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="format-detection" content="telephone=no, address=no, email=no" />
+	<meta name="author" content="chairhong" />
+	<title>HellCamp Assignment</title>
+	<link rel="stylesheet" href="{% static 'css/main.css' %}">
+	<!-- 크롬으로 들어오세요 -->
+</head>
+<body>
+	{% include 'base/header.html' %}
+	<div class="main-header-img">
+		<div class="sub-header-img">
+			<p>CONTACT</p>
+		</div>
+	</div>
+	
+	<section>
+		<div class="contact">
+			<p>연락을 원한다면, 다음 세 가지 경로로 저에게 연락하실 수 있습니다.</p><br><br>
+			<table border='0' class="icon" align="center" style="margin-left: auto; margin-right: auto;">
+				<tr>
+					<td width=400px><img style="width:200px; height:200px;" align:"center" src="{% static 'images/icon/email.png' %}"></td>
+					<td width=400px><img style="width:200px; height:200px;" align:"center" src="{% static 'images/icon/phone.png' %}"></td>
+					<td width=400px><img style="width:200px; height:200px;" align:"center" src="{% static 'images/icon/facebook.png' %}"></td>
+				</tr>
+
+				<tr>
+					<td height=200px><p>dbsghdrhks78@gmail.com</p></td>
+					<td height=200px><p>010-0000-0000</p></td>
+					<td height=200px><p>ghdrhks78@naver.com</p></td>
+				</tr>
+			</table>
+		</div>
+	</section>
+	{% include 'base/footer.html' %}
+</body>
+</html>
